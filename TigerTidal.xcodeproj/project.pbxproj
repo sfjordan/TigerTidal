@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A97D45821A0531EC007867FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45811A0531EC007867FF /* AppDelegate.swift */; };
+		A97D45841A0531EC007867FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45831A0531EC007867FF /* ViewController.swift */; };
+		A97D45871A0531ED007867FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97D45851A0531ED007867FF /* Main.storyboard */; };
+		A97D45891A0531ED007867FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97D45881A0531ED007867FF /* Images.xcassets */; };
+		A97D458C1A0531ED007867FF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97D458A1A0531ED007867FF /* LaunchScreen.xib */; };
+		A97D45981A0531ED007867FF /* TigerTidalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45971A0531ED007867FF /* TigerTidalTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A97D45921A0531ED007867FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A97D45741A0531EC007867FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A97D457B1A0531EC007867FF;
+			remoteInfo = TigerTidal;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A97D457C1A0531EC007867FF /* TigerTidal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TigerTidal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A97D45801A0531EC007867FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A97D45811A0531EC007867FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A97D45831A0531EC007867FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A97D45861A0531ED007867FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A97D45881A0531ED007867FF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A97D458B1A0531ED007867FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		A97D45911A0531ED007867FF /* TigerTidalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TigerTidalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A97D45961A0531ED007867FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A97D45971A0531ED007867FF /* TigerTidalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerTidalTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A97D45791A0531EC007867FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A97D458E1A0531ED007867FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A97D45731A0531EC007867FF = {
+			isa = PBXGroup;
+			children = (
+				A97D457E1A0531EC007867FF /* TigerTidal */,
+				A97D45941A0531ED007867FF /* TigerTidalTests */,
+				A97D457D1A0531EC007867FF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A97D457D1A0531EC007867FF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A97D457C1A0531EC007867FF /* TigerTidal.app */,
+				A97D45911A0531ED007867FF /* TigerTidalTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A97D457E1A0531EC007867FF /* TigerTidal */ = {
+			isa = PBXGroup;
+			children = (
+				A97D45811A0531EC007867FF /* AppDelegate.swift */,
+				A97D45831A0531EC007867FF /* ViewController.swift */,
+				A97D45851A0531ED007867FF /* Main.storyboard */,
+				A97D45881A0531ED007867FF /* Images.xcassets */,
+				A97D458A1A0531ED007867FF /* LaunchScreen.xib */,
+				A97D457F1A0531EC007867FF /* Supporting Files */,
+			);
+			path = TigerTidal;
+			sourceTree = "<group>";
+		};
+		A97D457F1A0531EC007867FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A97D45801A0531EC007867FF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A97D45941A0531ED007867FF /* TigerTidalTests */ = {
+			isa = PBXGroup;
+			children = (
+				A97D45971A0531ED007867FF /* TigerTidalTests.swift */,
+				A97D45951A0531ED007867FF /* Supporting Files */,
+			);
+			path = TigerTidalTests;
+			sourceTree = "<group>";
+		};
+		A97D45951A0531ED007867FF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A97D45961A0531ED007867FF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A97D457B1A0531EC007867FF /* TigerTidal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A97D459B1A0531ED007867FF /* Build configuration list for PBXNativeTarget "TigerTidal" */;
+			buildPhases = (
+				A97D45781A0531EC007867FF /* Sources */,
+				A97D45791A0531EC007867FF /* Frameworks */,
+				A97D457A1A0531EC007867FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TigerTidal;
+			productName = TigerTidal;
+			productReference = A97D457C1A0531EC007867FF /* TigerTidal.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A97D45901A0531ED007867FF /* TigerTidalTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A97D459E1A0531ED007867FF /* Build configuration list for PBXNativeTarget "TigerTidalTests" */;
+			buildPhases = (
+				A97D458D1A0531ED007867FF /* Sources */,
+				A97D458E1A0531ED007867FF /* Frameworks */,
+				A97D458F1A0531ED007867FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A97D45931A0531ED007867FF /* PBXTargetDependency */,
+			);
+			name = TigerTidalTests;
+			productName = TigerTidalTests;
+			productReference = A97D45911A0531ED007867FF /* TigerTidalTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A97D45741A0531EC007867FF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Sam Jordan";
+				TargetAttributes = {
+					A97D457B1A0531EC007867FF = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					A97D45901A0531ED007867FF = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = A97D457B1A0531EC007867FF;
+					};
+				};
+			};
+			buildConfigurationList = A97D45771A0531EC007867FF /* Build configuration list for PBXProject "TigerTidal" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A97D45731A0531EC007867FF;
+			productRefGroup = A97D457D1A0531EC007867FF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A97D457B1A0531EC007867FF /* TigerTidal */,
+				A97D45901A0531ED007867FF /* TigerTidalTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A97D457A1A0531EC007867FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A97D45871A0531ED007867FF /* Main.storyboard in Resources */,
+				A97D458C1A0531ED007867FF /* LaunchScreen.xib in Resources */,
+				A97D45891A0531ED007867FF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A97D458F1A0531ED007867FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A97D45781A0531EC007867FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A97D45841A0531EC007867FF /* ViewController.swift in Sources */,
+				A97D45821A0531EC007867FF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A97D458D1A0531ED007867FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A97D45981A0531ED007867FF /* TigerTidalTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A97D45931A0531ED007867FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A97D457B1A0531EC007867FF /* TigerTidal */;
+			targetProxy = A97D45921A0531ED007867FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A97D45851A0531ED007867FF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A97D45861A0531ED007867FF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A97D458A1A0531ED007867FF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A97D458B1A0531ED007867FF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A97D45991A0531ED007867FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A97D459A1A0531ED007867FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A97D459C1A0531ED007867FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TigerTidal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A97D459D1A0531ED007867FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = TigerTidal/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A97D459F1A0531ED007867FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TigerTidalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TigerTidal.app/TigerTidal";
+			};
+			name = Debug;
+		};
+		A97D45A01A0531ED007867FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TigerTidalTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TigerTidal.app/TigerTidal";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A97D45771A0531EC007867FF /* Build configuration list for PBXProject "TigerTidal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A97D45991A0531ED007867FF /* Debug */,
+				A97D459A1A0531ED007867FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A97D459B1A0531ED007867FF /* Build configuration list for PBXNativeTarget "TigerTidal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A97D459C1A0531ED007867FF /* Debug */,
+				A97D459D1A0531ED007867FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A97D459E1A0531ED007867FF /* Build configuration list for PBXNativeTarget "TigerTidalTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A97D459F1A0531ED007867FF /* Debug */,
+				A97D45A01A0531ED007867FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A97D45741A0531EC007867FF /* Project object */;
+}
