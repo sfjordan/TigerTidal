@@ -7,23 +7,36 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
-
+    
     @IBOutlet weak var mapView: GMSMapView!
     
+    var firstLocationUpdate: Bool?
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2DMake(-33.86, 151.20)
+//        marker.title = "Sydney"
+//        marker.snippet = "Australia"
+//        marker.map = mapView
+
+        
         locationManager.delegate = self
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         locationManager.requestWhenInUseAuthorization()
         var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 40.348828, longitude: -74.659413)
         var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 18, bearing: 0, viewingAngle: 15)
         
-        println("view DidLoad mapview is nil: \(mapView == nil)")
+        println("LOAD mapview is nil: \(mapView == nil)")
+        println("LOAD mapView.myLocation: \(mapView.myLocation)")
         
         mapView.camera = camera
         mapView.delegate = self
@@ -41,9 +54,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             
             // 3
             locationManager.startUpdatingLocation()
-            println("Location: \(locationManager.location)")
             
-            println("didChangeAuth mapview is nil: \(mapView == nil)")
+            println("CHAUTH: \(mapView.myLocation)")
             
             mapView.myLocationEnabled = true
             mapView.settings.myLocationButton = true
@@ -55,9 +67,12 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if let location = locations.first as? CLLocation {
             
-            println("didUpdateLocations mapview is nil: \(mapView == nil)")
+            println("CHLOC: \(mapView.myLocation)")
             // 6
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 18, bearing: 0, viewingAngle: 15)
+            var locTarget: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            mapView.camera = GMSCameraPosition(target: locTarget, zoom: 18, bearing: 0, viewingAngle: 18)
+            return;
+            
         }
     }
 
