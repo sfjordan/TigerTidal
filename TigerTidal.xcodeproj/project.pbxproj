@@ -13,6 +13,20 @@
 		A97D45891A0531ED007867FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97D45881A0531ED007867FF /* Images.xcassets */; };
 		A97D458C1A0531ED007867FF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A97D458A1A0531ED007867FF /* LaunchScreen.xib */; };
 		A97D45981A0531ED007867FF /* TigerTidalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45971A0531ED007867FF /* TigerTidalTests.swift */; };
+		A97D45A41A0534ED007867FF /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45A31A0534ED007867FF /* GoogleMaps.framework */; };
+		A97D45A61A053518007867FF /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A97D45A51A053518007867FF /* GoogleMaps.bundle */; };
+		A97D45A81A053547007867FF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45A71A053547007867FF /* AVFoundation.framework */; };
+		A97D45AA1A05354E007867FF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45A91A05354E007867FF /* CoreData.framework */; };
+		A97D45AC1A053554007867FF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45AB1A053554007867FF /* CoreLocation.framework */; };
+		A97D45AE1A05355C007867FF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45AD1A05355C007867FF /* GLKit.framework */; };
+		A97D45B01A053562007867FF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45AF1A053562007867FF /* ImageIO.framework */; };
+		A97D45B21A05356B007867FF /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45B11A05356B007867FF /* libc++.dylib */; };
+		A97D45B41A053574007867FF /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45B31A053574007867FF /* libicucore.dylib */; };
+		A97D45B61A05357E007867FF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45B51A05357E007867FF /* libz.dylib */; };
+		A97D45B81A053586007867FF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45B71A053586007867FF /* OpenGLES.framework */; };
+		A97D45BA1A05358D007867FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45B91A05358D007867FF /* QuartzCore.framework */; };
+		A97D45BC1A053594007867FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45BB1A053594007867FF /* SystemConfiguration.framework */; };
+		A97D45C11A0539D0007867FF /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45C01A0539D0007867FF /* GoogleDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +50,21 @@
 		A97D45911A0531ED007867FF /* TigerTidalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TigerTidalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97D45961A0531ED007867FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A97D45971A0531ED007867FF /* TigerTidalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TigerTidalTests.swift; sourceTree = "<group>"; };
+		A97D45A31A0534ED007867FF /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		A97D45A51A053518007867FF /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		A97D45A71A053547007867FF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A97D45A91A05354E007867FF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A97D45AB1A053554007867FF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A97D45AD1A05355C007867FF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A97D45AF1A053562007867FF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		A97D45B11A05356B007867FF /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		A97D45B31A053574007867FF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		A97D45B51A05357E007867FF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		A97D45B71A053586007867FF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		A97D45B91A05358D007867FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A97D45BB1A053594007867FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A97D45BD1A05378C007867FF /* TigerTidal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TigerTidal-Bridging-Header.h"; sourceTree = "<group>"; };
+		A97D45C01A0539D0007867FF /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = "../../../../Downloads/Feed Me Starter/Feed Me/Model/GoogleDataProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +72,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A97D45BC1A053594007867FF /* SystemConfiguration.framework in Frameworks */,
+				A97D45BA1A05358D007867FF /* QuartzCore.framework in Frameworks */,
+				A97D45B81A053586007867FF /* OpenGLES.framework in Frameworks */,
+				A97D45B61A05357E007867FF /* libz.dylib in Frameworks */,
+				A97D45B41A053574007867FF /* libicucore.dylib in Frameworks */,
+				A97D45B21A05356B007867FF /* libc++.dylib in Frameworks */,
+				A97D45B01A053562007867FF /* ImageIO.framework in Frameworks */,
+				A97D45AE1A05355C007867FF /* GLKit.framework in Frameworks */,
+				A97D45AC1A053554007867FF /* CoreLocation.framework in Frameworks */,
+				A97D45AA1A05354E007867FF /* CoreData.framework in Frameworks */,
+				A97D45A81A053547007867FF /* AVFoundation.framework in Frameworks */,
+				A97D45A41A0534ED007867FF /* GoogleMaps.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +100,19 @@
 		A97D45731A0531EC007867FF = {
 			isa = PBXGroup;
 			children = (
+				A97D45BB1A053594007867FF /* SystemConfiguration.framework */,
+				A97D45B91A05358D007867FF /* QuartzCore.framework */,
+				A97D45B71A053586007867FF /* OpenGLES.framework */,
+				A97D45B51A05357E007867FF /* libz.dylib */,
+				A97D45B31A053574007867FF /* libicucore.dylib */,
+				A97D45B11A05356B007867FF /* libc++.dylib */,
+				A97D45AF1A053562007867FF /* ImageIO.framework */,
+				A97D45AD1A05355C007867FF /* GLKit.framework */,
+				A97D45AB1A053554007867FF /* CoreLocation.framework */,
+				A97D45A91A05354E007867FF /* CoreData.framework */,
+				A97D45A71A053547007867FF /* AVFoundation.framework */,
+				A97D45A51A053518007867FF /* GoogleMaps.bundle */,
+				A97D45A31A0534ED007867FF /* GoogleMaps.framework */,
 				A97D457E1A0531EC007867FF /* TigerTidal */,
 				A97D45941A0531ED007867FF /* TigerTidalTests */,
 				A97D457D1A0531EC007867FF /* Products */,
@@ -78,11 +132,13 @@
 			isa = PBXGroup;
 			children = (
 				A97D45811A0531EC007867FF /* AppDelegate.swift */,
+				A97D45C01A0539D0007867FF /* GoogleDataProvider.swift */,
 				A97D45831A0531EC007867FF /* ViewController.swift */,
 				A97D45851A0531ED007867FF /* Main.storyboard */,
 				A97D45881A0531ED007867FF /* Images.xcassets */,
 				A97D458A1A0531ED007867FF /* LaunchScreen.xib */,
 				A97D457F1A0531EC007867FF /* Supporting Files */,
+				A97D45BD1A05378C007867FF /* TigerTidal-Bridging-Header.h */,
 			);
 			path = TigerTidal;
 			sourceTree = "<group>";
@@ -195,6 +251,7 @@
 				A97D45871A0531ED007867FF /* Main.storyboard in Resources */,
 				A97D458C1A0531ED007867FF /* LaunchScreen.xib in Resources */,
 				A97D45891A0531ED007867FF /* Images.xcassets in Resources */,
+				A97D45A61A053518007867FF /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A97D45841A0531EC007867FF /* ViewController.swift in Sources */,
+				A97D45C11A0539D0007867FF /* GoogleDataProvider.swift in Sources */,
 				A97D45821A0531EC007867FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +350,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -327,6 +386,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -336,9 +396,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/samjordan/Documents/IW/GoogleMaps-iOS-1.8.1",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TigerTidal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TigerTidal/TigerTidal-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -346,9 +414,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/samjordan/Documents/IW/GoogleMaps-iOS-1.8.1",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = TigerTidal/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TigerTidal/TigerTidal-Bridging-Header.h";
 			};
 			name = Release;
 		};
