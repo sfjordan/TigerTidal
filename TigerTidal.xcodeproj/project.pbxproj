@@ -26,7 +26,6 @@
 		A97D45B81A053586007867FF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45B71A053586007867FF /* OpenGLES.framework */; };
 		A97D45BA1A05358D007867FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45B91A05358D007867FF /* QuartzCore.framework */; };
 		A97D45BC1A053594007867FF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A97D45BB1A053594007867FF /* SystemConfiguration.framework */; };
-		A97D45C11A0539D0007867FF /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45C01A0539D0007867FF /* GoogleDataProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		A97D45B91A05358D007867FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A97D45BB1A053594007867FF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A97D45BD1A05378C007867FF /* TigerTidal-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TigerTidal-Bridging-Header.h"; sourceTree = "<group>"; };
-		A97D45C01A0539D0007867FF /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = "../../../../Downloads/Feed Me Starter/Feed Me/Model/GoogleDataProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				A97D45811A0531EC007867FF /* AppDelegate.swift */,
-				A97D45C01A0539D0007867FF /* GoogleDataProvider.swift */,
 				A97D45831A0531EC007867FF /* ViewController.swift */,
 				A97D45851A0531ED007867FF /* Main.storyboard */,
 				A97D45881A0531ED007867FF /* Images.xcassets */,
@@ -270,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A97D45841A0531EC007867FF /* ViewController.swift in Sources */,
-				A97D45C11A0539D0007867FF /* GoogleDataProvider.swift in Sources */,
 				A97D45821A0531EC007867FF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
