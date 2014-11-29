@@ -29,11 +29,15 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
 
         
         locationManager.delegate = self
-        locationManager.distanceFilter = kCLDistanceFilterNone;
+//        locationManager.distanceFilter = kCLDistanceFilterNone;
+        
+        let urlPath: String = "https://eerie-ghoul-2405.herokuapp.com/db"
+        getJsonData(urlPath)
+        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         locationManager.requestWhenInUseAuthorization()
         var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 40.348828, longitude: -74.659413)
-        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 18, bearing: 0, viewingAngle: 15)
+        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 18, bearing: 0, viewingAngle: 18)
         
         println("LOAD mapview is nil: \(mapView == nil)")
         println("LOAD mapView.myLocation: \(mapView.myLocation)")
@@ -55,7 +59,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             // 3
             locationManager.startUpdatingLocation()
             
-            println("CHAUTH: \(mapView.myLocation)")
+            println("CHAUTH mylocation: \(mapView.myLocation)")
             
             mapView.myLocationEnabled = true
             mapView.settings.myLocationButton = true
@@ -70,11 +74,52 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             println("CHLOC: \(mapView.myLocation)")
             // 6
             var locTarget: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            mapView.camera = GMSCameraPosition(target: locTarget, zoom: 18, bearing: 0, viewingAngle: 18)
+            //mapView.camera = GMSCameraPosition(target: locTarget, zoom: 18, bearing: 0, viewingAngle: 18)
             return;
             
         }
     }
+    
+    func getJsonData(urlPath: String) {
+        var url: NSURL = NSURL(string: urlPath)!
+        var request1: NSURLRequest = NSURLRequest(URL: url)
+        let queue:NSOperationQueue = NSOperationQueue()
+        
+        NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            /* Your code */
+//            if (error != nil) {
+//                println("error:")
+//                println(error)
+//            }
+            
+            var jsonError: NSError?
+            if let json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? [String : AnyObject] {
+                // this code is executed if the json is a NSDictionary
+                if (json != nil) {
+                    println("JSON: \(json)")
+                    if let activeUsers = json["activeUsers"]! as? [[String : AnyObject]] {
+                        // safe to use activeUsers
+                        for user in activeUsers {
+                            let firstName = user["firstname"]! as String
+                            let lastName = user["lastname"]! as String
+                        
+                            println("user: \(firstName) \(lastName)")
+                        }
+                    }
+                } else {
+                    println("json is nil")
+                }
+            } else {
+                // otherwise, this code is executed
+                if let unwrappedError = jsonError {
+                    println("json error: \(unwrappedError)")
+                }
+            }
+            
+            
+        })
+    }
+
 
 
 }
