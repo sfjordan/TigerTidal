@@ -96,7 +96,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             if let json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? [String : AnyObject] {
                 // this code is executed if the json is a NSDictionary
                 if (json != nil) {
-                    println("JSON: \(json)")
+//                    println("JSON: \(json)")
                     if let activeUsers = json["activeUsers"]! as? [[String : AnyObject]] {
                         // safe to use activeUsers
                         for user in activeUsers {
