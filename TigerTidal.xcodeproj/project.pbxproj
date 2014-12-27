@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A96C462F1A48FBAA00E998D9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96C462E1A48FBAA00E998D9 /* SettingsViewController.swift */; };
 		A97D45821A0531EC007867FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45811A0531EC007867FF /* AppDelegate.swift */; };
 		A97D45841A0531EC007867FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D45831A0531EC007867FF /* ViewController.swift */; };
 		A97D45871A0531ED007867FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97D45851A0531ED007867FF /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A96C462E1A48FBAA00E998D9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A97D457C1A0531EC007867FF /* TigerTidal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TigerTidal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97D45801A0531EC007867FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A97D45811A0531EC007867FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		A97D457E1A0531EC007867FF /* TigerTidal */ = {
 			isa = PBXGroup;
 			children = (
+				A96C462E1A48FBAA00E998D9 /* SettingsViewController.swift */,
 				A97D45811A0531EC007867FF /* AppDelegate.swift */,
 				A97D45831A0531EC007867FF /* ViewController.swift */,
 				A97D45851A0531ED007867FF /* Main.storyboard */,
@@ -268,6 +271,7 @@
 			files = (
 				A97D45841A0531EC007867FF /* ViewController.swift in Sources */,
 				A97D45821A0531EC007867FF /* AppDelegate.swift in Sources */,
+				A96C462F1A48FBAA00E998D9 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +480,7 @@
 				A97D459D1A0531ED007867FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A97D459E1A0531ED007867FF /* Build configuration list for PBXNativeTarget "TigerTidalTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +489,7 @@
 				A97D45A01A0531ED007867FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
