@@ -1,0 +1,4 @@
+# don't need google maps framwork
+GoogleMaps.framework
+# don't have any tests
+TigerTidalTests
