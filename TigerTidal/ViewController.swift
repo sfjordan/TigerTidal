@@ -205,7 +205,16 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         if (!userConfirmedLocAuth || !haveUserPref || !inBounds) {
             //don't try to send data until confirmation
             println("no locAuth, no pref, or not in bounds; not uploading location...")
-            return
+            if let locnotnil = locationManager.location {
+                //loc is not null, so just return
+                return
+            }
+            else {
+                println("attempted POST Error!")
+                println("location is nil")
+                toast("TigerTidal cannot access your location, please enable location services for this app.", title: "Location Error!", btntext: "Ok")
+                return
+            }
         }
         println("POSTing loc to server...")
         
