@@ -20,17 +20,19 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     var userConfirmedLocAuth: Bool! = false
     var haveUserPref:Bool! = false
     var firstRun:Bool! = true
+    var inBounds:Bool! = false
     
     
     
     //constants:
-    let updateDLDataRate:Double = 30 //seconds
-    let updateULDataRate:Double = 10 //seconds
-    let updateDrawRate:Double = 0.3 //seconds
+    let updateDLDataRate:Double = 15 //seconds
+    let updateULDataRate:Double = 7 //seconds
+    let updateDrawRate:Double = 0.25 //seconds
+    let clearDataRate:Double = 60 //seconds
     
     let locationManager = CLLocationManager()
     let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
-    let dataURL: String = "https://eerie-ghoul-2405.herokuapp.com/db"
+    let dataURL: String = "https://tigertidal.herokuapp.com/db"
     var myFirstName  = ""
     var myLastName = ""
     var myClassYear = ""
@@ -41,7 +43,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     //global vars:
     var activeUserDict = [String:ActiveUser]()
     var activeMarkerDict = [String:GMSMarker]()
-    var latMin = 40.336703
+    var latMin = 40.336703 //min and max boundaries, past edge of campus:
     var latMax = 40.351684
     var longMin = -74.675656
     var longMax = -74.629093
@@ -91,8 +93,9 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         myUid = String(UIDevice.currentDevice().identifierForVendor.UUIDString.hashValue)
         
         //start getting initial data
-        updateDL()
         updateUL()
+        updateDL()
+        
         
         //set up mapview and camera
         var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 40.348828, longitude: -74.659413)
@@ -108,6 +111,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         var drawTimer = NSTimer.scheduledTimerWithTimeInterval(updateDrawRate, target: self, selector: Selector("updateDraw"), userInfo: nil, repeats: true)
         //update server data loop
         var ulDataTimer = NSTimer.scheduledTimerWithTimeInterval(updateULDataRate, target: self, selector: Selector("updateUL"), userInfo: nil, repeats: true)
+        //clear out old data loop
+        var clearDataTimer = NSTimer.scheduledTimerWithTimeInterval(clearDataRate, target: self, selector: Selector("clearData"), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -155,7 +160,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             myClassYear = classYearIsNotNill
         }
         
-        if (!firstRun && haveUserPref == true && userConfirmedLocAuth == true) {
+        if (!firstRun) {
             updateDL()
         }
         super.viewWillAppear(animated)
@@ -166,10 +171,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         firstRun = false
         
-        //reset map, dictionaries so old members won't be there forever
-        mapView.clear()
-        activeUserDict.removeAll(keepCapacity: false)
-        activeMarkerDict.removeAll(keepCapacity: false)
+        clearData()
         super.viewWillDisappear(animated)
     }
 
@@ -179,12 +181,20 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         performSegueWithIdentifier("SettingsSegue", sender: self)
 
     }
+    
+    func clearData() {
+        //reset map, dictionaries so old members won't be there forever
+        println("clearing map and dicts...")
+        mapView.clear()
+        activeUserDict.removeAll(keepCapacity: true)
+        activeMarkerDict.removeAll(keepCapacity: true)
+    }
 
     
     func updateDL() {
-        if (!userConfirmedLocAuth || !haveUserPref) {
+        if (!userConfirmedLocAuth || !haveUserPref || !inBounds) {
             //don't give other peoples data until location is being shared
-            println("no locAuth or no pref, not updating data...")
+            println("no locAuth, no pref, or not in bounds; not updating data...")
             return
         }
         println("updating data...");
@@ -192,15 +202,12 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     }
     
     func updateUL() {
-        if (!userConfirmedLocAuth || !haveUserPref) {
+        if (!userConfirmedLocAuth || !haveUserPref || !inBounds) {
             //don't try to send data until confirmation
-            println("no locAuth or  no pref, not uploading location...")
+            println("no locAuth, no pref, or not in bounds; not uploading location...")
             return
         }
-        println("sending new location to server...")
-//        println("firstname: \(myFirstName)")
-//        println("lastname: \(myLastName)")
-//        println("uid: \(myUid)")
+        println("POSTing loc to server...")
         
         if let location = locationManager.location {
             var updateDict: Dictionary<String, String> = ["firstname":myFirstName, "lastname":myLastName, "uid":myUid, "classyear":myClassYear, "longitude":self.locationManager.location.coordinate.longitude.description, "latitude":self.locationManager.location.coordinate.latitude.description, "heading":self.locationManager.location.course.description, "speed":self.locationManager.location.speed.description]
@@ -215,11 +222,13 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
     
     func updateDraw() {
         for (key, marker) in activeMarkerDict {
-            //calculate new position based on velocity
             var activeUser = activeUserDict[key]!
+            
+            //calculate new position based on velocity
             activeUser.updateLoc(updateDrawRate)
+            
             //update marker to new position
-            marker.position = CLLocationCoordinate2DMake(activeUser.longitude, activeUser.latitude)
+            marker.position = CLLocationCoordinate2DMake(activeUser.latitude, activeUser.longitude)
         }
     }
     
@@ -251,6 +260,10 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             // check if user is in bounds, if not display message:
             if (loc.latitude > latMax || loc.latitude < latMin || loc.longitude > longMax || loc.longitude < longMin) {
                 toast("This app is meant to be used on the Princeton campus. Please return to campus to use this app.", title: "Out of bounds!", btntext: "Ok")
+                inBounds = false
+            }
+            else {
+                inBounds = true
             }
         }
     }
@@ -319,36 +332,41 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             if let json: AnyObject! = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &jsonError) as? [String : AnyObject] {
                 // this code is executed if the json is a NSDictionary
                 if (json != nil) {
-                    //println("JSON: \(json)")
                     println("JSON loaded successfully")
+                    
                     if let activeUsers = json["activeUsers"]! as? [[String : AnyObject]] {
                         // safe to use activeUsers
                         for user in activeUsers {
-                            //check for bad data
+                            
+                            //check for bad data:
                             if (user["firstname"] == nil
                                 || user["lastname"] == nil
                                 || user["classyear"] == nil
                                 ||  user["uid"] == nil) {
-                                    //have to split them up or xcode complains
-                                    if (user["longitude"] == nil
-                                        || user["latitude"] == nil
+                                    //(have to split them up or xcode complains)
+                                    if (user["latitude"] == nil
+                                        || user["longitude"] == nil
                                         || user["heading"] == nil
                                         || user["speed"] == nil) {
                                             println("D/L JSON Error!")
                                             println("A required field is null")
+                                            
                                             // toast saying malformed data from server
+                                            // use main thread
                                             dispatch_async(dispatch_get_main_queue(), {
                                                 self.toast("Server returned bad data",title:"Server Error!",btntext:"Ok")
                                             })
                                             return;
                                     }
                             }
+                            
+                            //all is OK so far, get data from JSON dict:
                             var firstName = user["firstname"]! as String
                             var lastName = user["lastname"]! as String
                             var UID = user["uid"]! as String
                             var classYear = user["classyear"]! as String
-                            var long = user["longitude"]!.doubleValue
                             var lat = user["latitude"]!.doubleValue
+                            var long = user["longitude"]!.doubleValue
                             var heading = user["heading"]!.doubleValue
                             var speed = user["speed"]!.doubleValue
                             
@@ -365,24 +383,32 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
                                 speed = 0.0
                             }
                             
+                            //if user is out of bounds, ignore his data:
+                            if (lat < self.latMin || lat > self.latMax || long < self.longMin || long > self.longMax) {
+                                //user is now out of bounds, don't show position
+                                println("\(firstName) \(lastName) is out of bounds! skipping...")
+                                continue
+                            }
+                            
+                            
                             //now execute with main thread, so GMS calls won't fail
                             dispatch_async(dispatch_get_main_queue(), {
                                 //update activeUser dict
                                 if let curUser = self.activeUserDict[UID] {
-                                    //user and marker already in dict, just update fields
-                                    curUser.longitude = long
+                                    //user and marker already in dict, just update fields:
                                     curUser.latitude = lat
+                                    curUser.longitude = long
                                     curUser.heading = heading
                                     curUser.speed = speed
                                     let marker = self.activeMarkerDict[UID]!
-                                    marker.position = CLLocationCoordinate2DMake(long, lat)
+                                    marker.position = CLLocationCoordinate2DMake(lat, long)
                                     marker.rotation = heading
                                 } else {
-                                    //user and marker not in dict, create
+                                    //user and marker not in dict, create:
                                     var activeUser = ActiveUser()
-                                    activeUser.createUser(firstName, lastName: lastName, uid: UID, classYear: classYear, longitude: long, latitude: lat, heading:heading, speed:speed)
+                                    activeUser.createUser(firstName, lastName: lastName, uid: UID, classYear: classYear,  latitude: lat, longitude: long, heading:heading, speed:speed)
                                     let marker = GMSMarker()
-                                    marker.position = CLLocationCoordinate2DMake(activeUser.longitude, activeUser.latitude)
+                                    marker.position = CLLocationCoordinate2DMake(activeUser.latitude, activeUser.longitude)
                                     marker.title = activeUser.displayName()
                                     marker.snippet = activeUser.classYear
                                     marker.icon = UIImage(named: "my_arrow")
@@ -391,7 +417,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
                                     marker.map = self.mapView
                                     self.activeUserDict.updateValue(activeUser, forKey: activeUser.uid)
                                     self.activeMarkerDict.updateValue(marker, forKey: activeUser.uid)
-                                    println("added \(activeUser.displayName())")
+                                    println("added: \(activeUser.displayName())")
+                                    //activeUser.printUser()
                                 }
                             })
                         }
@@ -406,7 +433,7 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
                     })
                 }
             } else {
-                // otherwise, this code is executed
+                // JSON unwrap error, log to console:
                 if let unwrappedError = jsonError {
                     println("D/L JSON Error!")
                     println("json error: \(unwrappedError)")
@@ -423,22 +450,23 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         var lastName: String = ""
         var uid:String = ""
         var classYear: String = ""
-        var longitude: Double = 0.0
         var latitude: Double = 0.0
+        var longitude: Double = 0.0
         var heading: Double = 0.0
         var speed: Double = 0.0
         var anon:Bool = false
         
-        func createUser(firstName:String, lastName:String, uid:String, classYear:String, longitude:Double, latitude:Double, heading:Double, speed:Double) {
+        func createUser(firstName:String, lastName:String, uid:String,
+            classYear:String, latitude:Double, longitude:Double, heading:Double, speed:Double) {
             self.firstName = firstName
             if (firstName == "anon") {
                 self.anon = true
             }
             self.lastName = lastName
             self.uid = uid
+            self.latitude = latitude
             self.longitude = longitude
             self.classYear = classYear
-            self.latitude = latitude
             self.heading = heading
             self.speed = speed
         }
@@ -457,8 +485,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
                 return //if they're going that slowly, don't interpolate movement
             }
             var totDist = speed*time
-            latitude += metToLat(totDist * sin(degToRad(heading)))
-            longitude += metToLong(totDist * cos(degToRad(heading)))
+            latitude += metToLat(totDist * cos(degToRad(heading)))
+            longitude += metToLong(totDist * sin(degToRad(heading)))
         }
         
         func degToRad(degrees: Double) ->Double {
@@ -467,12 +495,14 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
         
         //returns number of latitude degrees changed from meters travelled (approx)
         func metToLat(meters: Double) ->Double {
-            return (meters/84395.01114552133)
+            //return (meters/84395.01114552133)
+            return (meters/111041.3151719585)
         }
         
         //returns number of longitude degrees changed from meters travelled (approx)
         func metToLong(meters: Double) ->Double {
-            return (meters/111122.19769899677)
+            //return (meters/111122.19769899677)
+            return (meters/84957.75707320592)
         }
         
         //print func, for debugging
@@ -481,8 +511,8 @@ class ViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDel
             println("lastName:\(lastName)")
             println("uid: \(uid)")
             println("classYear:\(classYear)")
-            println("long:\(longitude)")
             println("lat:\(latitude)")
+            println("long:\(longitude)")
             println("heading:\(heading)")
             println("speed:\(speed)")
         }

@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //set up save button
+        //set up save button:
         saveBtn.addTarget(self, action: "saveAct:", forControlEvents: UIControlEvents.TouchUpInside)
         
         //load saved data, toast info message if nil:
@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             }
             saveBtn.enabled = true
         } else {
-            //there is no saved data
+            //there is no saved data:
             toast("Please enter your information then tap 'Save'. The Class Year field is required.", title: "Instructions", btntext: "Ok")
             anonymousSwitch.on = false
             firstnamefield.placeholder = "Bob"
@@ -74,6 +74,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         println("year: \(classyearfield.text)")
         println("anon: \(anonymousSwitch.on)")
         
+        //now, check if input is valid:
         var inputOK = false
         if (haveUserPref == true) {
             if (!anonymousSwitch.on && (!firstnamefield.hasText() || !lastnamefield.hasText())) {
@@ -93,6 +94,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
             inputOK = false
         }
         
+        //inform user if there are errors in input:
         if(inputOK) {
             toast("Preferences saved", title:"Success!", btntext:"ok")
         }
@@ -131,6 +133,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    //delegate, for real-time data checking (feedback for user)
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         // Find out what the text field will be after adding the current edit
         let cy = classyearfield.text
